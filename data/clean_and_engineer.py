@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-raw = pd.read_csv("/home/claude/cardio/data/cardio_raw.csv")
+raw = pd.read_csv("cardio_raw.csv")
 df = raw.copy()
 
 df = df.drop_duplicates(subset=[c for c in df.columns if c != "id"])
@@ -61,7 +61,7 @@ df["risk_tier"] = pd.cut(
 )
 
 df = df.drop(columns=["age"]).rename(columns={"age_years": "age"})
-df.to_csv("/home/claude/cardio/data/excel_cleaned_cardio_data.csv", index=False)
+df.to_csv("excel_cleaned_cardio_data.csv", index=False)
 print(df.shape)
 print(df["risk_tier"].value_counts(normalize=True).round(3))
 print(df.groupby("risk_tier")["cardio"].mean().round(3))

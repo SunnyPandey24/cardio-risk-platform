@@ -86,6 +86,6 @@ raw = pd.concat([raw, dup_rows], ignore_index=True)
 null_idx = np.random.choice(raw.index, 200, replace=False)
 raw.loc[null_idx, "weight"] = np.nan
 
-raw.to_csv("/home/claude/cardio/data/cardio_raw.csv", index=False)
-df.to_csv("/home/claude/cardio/data/final_cardio_dataset.csv", index=False)
+raw.to_csv("cardio_raw.csv", index=False)
+df.to_csv("final_cardio_dataset.csv", index=False)
 print("raw:", raw.shape, "clean:", df.shape, "cardio rate:", df.cardio.mean().round(4))

@@ -4,7 +4,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.chart import BarChart, Reference
 
-df = pd.read_csv("/home/claude/cardio/data/excel_cleaned_cardio_data.csv")
+df = pd.read_csv("../data/excel_cleaned_cardio_data.csv")
 
 HEADER_FILL = PatternFill("solid", fgColor="C0392B")
 HEADER_FONT = Font(bold=True, color="FFFFFF", name="Arial", size=11)
@@ -109,5 +109,5 @@ chart2.add_data(data2, titles_from_data=True)
 chart2.set_categories(cats2)
 piv.add_chart(chart2, "G2")
 
-wb.save("/home/claude/cardio/excel/cardio_project.xlsx")
+wb.save("cardio_project.xlsx")
 print("saved")

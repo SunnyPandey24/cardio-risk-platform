@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score, accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 
-df = pd.read_csv("/home/claude/cardio/data/excel_cleaned_cardio_data.csv")
+df = pd.read_csv("../data/excel_cleaned_cardio_data.csv")
 
 features = ["age", "gender", "bmi", "ap_hi", "ap_lo", "cholesterol", "gluc", "smoke", "alco", "active"]
 X = df[features]
@@ -67,7 +67,7 @@ output = {
     },
 }
 
-with open("/home/claude/cardio/model/model_results.json", "w") as f:
+with open("model_results.json", "w") as f:
     json.dump(output, f, indent=2)
 
 print(json.dumps(results, indent=2))

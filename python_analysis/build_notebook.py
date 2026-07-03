@@ -128,6 +128,6 @@ md("## 9. Key Findings\n"
    "- Risk tiers show a clear escalation in disease rate: Low → Medium → High → Critical.")
 
 nb['cells'] = cells
-with open('/home/claude/cardio/python_analysis/Cardio_Statistical_Analysis.ipynb', 'w') as f:
+with open('Cardio_Statistical_Analysis.ipynb', 'w') as f:
     nbf.write(nb, f)
 print("notebook built")
