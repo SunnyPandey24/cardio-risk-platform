@@ -1,0 +1,38 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Large/generated artifacts (regenerate via scripts instead of committing)
+*.pyc
+.pytest_cache/
+
+# Backend runtime data
+backend/cardio.db
+backend/test_cardio.db
+*.db
+
+# MLflow / MLOps artifacts (regenerate by running mlops/train_with_mlflow.py)
+mlops/mlflow.db
+mlops/mlruns/
+mlops/mlops_summary.json
+
+# Prefect
+.prefect/
+
+# Keep generated CSVs and notebook outputs tracked for this project
+# (they're the whole point of a reproducible analysis repo) — nothing excluded above on purpose besides runtime state.

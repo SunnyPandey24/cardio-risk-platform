@@ -1,0 +1,65 @@
+name: Pipeline CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate + clean data
+        run: |
+          cd data
+          python3 generate_data.py
+          python3 clean_and_engineer.py
+
+      - name: Train models
+        run: |
+          cd model
+          python3 train_model.py
+
+      - name: Build & execute notebook
+        run: |
+          cd python_analysis
+          python3 build_notebook.py
+          jupyter nbconvert --to notebook --execute --inplace Cardio_Statistical_Analysis.ipynb --ExecutePreprocessor.timeout=180
+
+      - name: Build Excel workbook
+        run: |
+          cd excel
+          python3 build_excel.py
+
+  test-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt
+          pip install pytest httpx
+
+      - name: Run API tests
+        run: |
+          cd backend
+          cp ../model/model_results.json app/model_results.json
+          python3 -m pytest tests/ -v
