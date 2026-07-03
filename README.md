@@ -1,5 +1,13 @@
 # 🫀 Cardiovascular Disease Risk Analysis — Full Data Platform
 
+![Pipeline CI](https://github.com/SunnyPandey24/cardio-risk-platform/actions/workflows/ci.yml/badge.svg)
+![Docker Build](https://github.com/SunnyPandey24/cardio-risk-platform/actions/workflows/docker-build.yml/badge.svg)
+[![Live Dashboard](https://img.shields.io/badge/dashboard-live-B3392C)](https://sunnypandey24.github.io/cardio-risk-platform/)
+[![Live API](https://img.shields.io/badge/API-live-1E7A63)](https://cardio-risk-api-yih3.onrender.com/docs)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+**[🔴 Live Dashboard](https://sunnypandey24.github.io/cardio-risk-platform/) · [🟢 Live API Docs](https://cardio-risk-api-yih3.onrender.com/docs) · [📐 Architecture](./ARCHITECTURE.md)**
+
 A complete data engineering + ML platform built on top of a cardiovascular risk analysis:
 ETL pipeline, orchestration, a trained and tracked ML model, a live FastAPI backend with
 auth and a database, containerized deployment, CI/CD, and monitoring — plus the original
